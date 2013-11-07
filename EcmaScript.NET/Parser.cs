@@ -25,7 +25,7 @@ namespace EcmaScript.NET
     /// in the jsref package.
     /// 
     /// </summary>	
-    internal class Parser
+    public class Parser
     {
         public string EncodedSource
         {
@@ -111,12 +111,33 @@ namespace EcmaScript.NET
         {
             int tt = currentFlaggedToken;
             if (tt == Token.EOF) {
-                tt = ts.Token;
+
+                while ((tt = ts.Token) == Token.CONDCOMMENT || tt == Token.KEEPCOMMENT) {
+                    if (tt == Token.CONDCOMMENT) {
+                        /* Support for JScript conditional comments */
+                        decompiler.AddJScriptConditionalComment (ts.String);
+                    }
+                    else {
+                        /* Support for preserved comments */
+                        decompiler.AddPreservedComment (ts.String);
+                    }
+                }
+
                 if (tt == Token.EOL) {
                     do {
                         tt = ts.Token;
+
+                        if (tt == Token.CONDCOMMENT) {
+                            /* Support for JScript conditional comments */
+                            decompiler.AddJScriptConditionalComment (ts.String);
+                        }
+                        else if (tt == Token.KEEPCOMMENT) {
+                            /* Support for preserved comments */
+                            decompiler.AddPreservedComment (ts.String);
+                        }
+
                     }
-                    while (tt == Token.EOL);
+                    while (tt == Token.EOL || tt == Token.CONDCOMMENT || tt == Token.KEEPCOMMENT);
                     tt |= TI_AFTER_EOL;
                 }
                 currentFlaggedToken = tt;
@@ -1055,6 +1076,11 @@ namespace EcmaScript.NET
                         break;
                     }
 
+                case Token.DEBUGGER:
+                    consumeToken ();
+                    decompiler.AddToken (Token.DEBUGGER);
+                    pn = nf.CreateDebugger (ts.Lineno);
+                    break;
 
 				case Token.DEBUGGER:
 					consumeToken();

@@ -22,7 +22,7 @@ namespace EcmaScript.NET
     /// in the jsref package.
     /// 
     /// </summary>	
-    internal class Token
+    public class Token
     {
 
         // debug flags
@@ -200,17 +200,23 @@ namespace EcmaScript.NET
         public const int TO_OBJECT = LAST_BYTECODE_TOKEN + 69;
         public const int TO_DOUBLE = LAST_BYTECODE_TOKEN + 70;
         
-		public const int DEBUGGER = LAST_BYTECODE_TOKEN + 71;
 
-        public const int LAST_TOKEN = LAST_BYTECODE_TOKEN + 72;
-        
+        public const int GET = LAST_BYTECODE_TOKEN + 71;  // JS 1.5 get pseudo keyword
+        public const int SET = LAST_BYTECODE_TOKEN + 72;  // JS 1.5 set pseudo keyword
+        public const int CONST = LAST_BYTECODE_TOKEN + 73;
+        public const int SETCONST = LAST_BYTECODE_TOKEN + 74;
+        public const int SETCONSTVAR = LAST_BYTECODE_TOKEN + 75;
+        public const int CONDCOMMENT = LAST_BYTECODE_TOKEN + 76; // JScript conditional comment
+        public const int KEEPCOMMENT = LAST_BYTECODE_TOKEN + 77; // /*! ... */ comment
+        public const int DEBUGGER = LAST_BYTECODE_TOKEN + 78;
 
+        public const int LAST_TOKEN = LAST_BYTECODE_TOKEN + 79;
 
         public static string name (int token)
         {
-            if (!printNames) {
-                return Convert.ToString (token);
-            }
+            //if (!printNames) {
+            //    return Convert.ToString (token);
+            //}
             switch (token) {
 
                 case ERROR:
@@ -651,11 +657,15 @@ namespace EcmaScript.NET
 
                 case TO_DOUBLE:
                     return "TO_DOUBLE";
-                case SETPROP_GETTER:
-                    return "SETPROP_GETTER";
-                case SETPROP_SETTER:
-                    return "SETPROP_SETTER";
-
+                case GET: return "GET";
+                case SET: return "SET";
+                case CONST: return "CONST";
+                case SETCONST: return "SETCONST";
+                case SETCONSTVAR: return "SETCONSTVAR";
+                case CONDCOMMENT: return "CONDCOMMENT";
+                case KEEPCOMMENT: return "KEEPCOMMENT";
+                case DEBUGGER: return "DEBUGGER";
+                default: return "UNKNOWN Token Type";
             }
 
             // Token without name

@@ -716,6 +716,10 @@ namespace EcmaScript.NET
                     }
                     break;
 
+                case Token.DEBUGGER:
+                    updateLineNumber (node);
+                    addIcode (Icode_DEBUGGER);
+                    break;
 
 				case Token.DEBUGGER:
 					updateLineNumber (node);

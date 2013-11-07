@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcmaScript.NET", "EcmaScript.NET\EcmaScript.NET.csproj", "{ED3DF8AE-9541-4C95-93C5-8C417D4CBA50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcmaScript.NET.Tools.IdSwitch", "EcmaScript.NET.Tools.IdSwitch\EcmaScript.NET.Tools.IdSwitch.csproj", "{2FE0F187-9687-4479-999D-B0A66E0D9222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcmaScript.NET.Tools.Shell", "EcmaScript.NET.Tools.Shell\EcmaScript.NET.Tools.Shell.csproj", "{A7F7BAC0-7779-4A63-B828-AF5D8F9B3781}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED3DF8AE-9541-4C95-93C5-8C417D4CBA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED3DF8AE-9541-4C95-93C5-8C417D4CBA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED3DF8AE-9541-4C95-93C5-8C417D4CBA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED3DF8AE-9541-4C95-93C5-8C417D4CBA50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE0F187-9687-4479-999D-B0A66E0D9222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE0F187-9687-4479-999D-B0A66E0D9222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE0F187-9687-4479-999D-B0A66E0D9222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE0F187-9687-4479-999D-B0A66E0D9222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F7BAC0-7779-4A63-B828-AF5D8F9B3781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F7BAC0-7779-4A63-B828-AF5D8F9B3781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F7BAC0-7779-4A63-B828-AF5D8F9B3781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F7BAC0-7779-4A63-B828-AF5D8F9B3781}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
